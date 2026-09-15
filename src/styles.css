@@ -24,6 +24,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header-h) + 0.5rem);
+  background: var(--forest-deep);
 }
 
 @media (prefers-reduced-motion: reduce) {

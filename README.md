@@ -59,16 +59,16 @@ Les textes du teaser se trouvent dans `copy.dondolieTitle` et `copy.dondolieText
 
 ## Publication (GitHub Pages)
 
-`vite.config.js` utilise `base: "./"` : les chemins du build restent relatifs, adaptés à un site projet.
+Dans le dépôt GitHub : **Settings → Pages**.
 
-Une fois Pages activé (Settings → Pages) :
+- **Deploy from a branch** : publier le contenu de `dist/` (branche `gh-pages`, ou dossier `/docs`), **ou**
+- **GitHub Actions** : lancer `npm run build` et déployer `dist/`.
 
-- **Deploy from a branch** : publier le contenu de `dist/` (branche `gh-pages`, ou dossier `/docs` selon le choix), **ou**
-- **GitHub Actions** : déployer le résultat de `npm run build`.
-
-Adresse prévue pour ce dépôt :
+`vite.config.js` utilise `base: "./"` (chemins relatifs). C’est le choix adapté à ce repo projet : le site fonctionne en aperçu local et, une fois Pages activé, à :
 
 `https://kazprod333-spec.github.io/k3ch-site/`
+
+L’alternative `base: "/k3ch-site/"` n’est pas retenue, pour ne pas casser `npm run preview` ni un éventuel domaine personnalisé.
 
 ## Accessibilité et mouvement
 
