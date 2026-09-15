@@ -9,8 +9,8 @@ export const brand = {
   name: "Maison K3CH Production",
   city: "Alger",
   tagline: "Studio · Music · Media",
-  /** Chemin public optionnel, ex. "/logo.svg". Laisser vide pour le lockup typographique. */
-  logoSrc: "",
+  /** Chemin public. Laisser vide pour le lockup typographique K3CH. */
+  logoSrc: `${import.meta.env.BASE_URL}logo.png`,
   logoAlt: "Maison K3CH Production",
 };
 

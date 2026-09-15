@@ -60,6 +60,9 @@ function applyBrand() {
       logoImg.removeAttribute("src");
       logoImg.hidden = true;
     });
+    lockups.forEach((wrap) => {
+      wrap.hidden = false;
+    });
   }
 }
 

@@ -1,10 +1,10 @@
 :root {
-  --forest: #0a1812;
-  --forest-deep: #06110c;
+  --forest: #0a0a0a;
+  --forest-deep: #000000;
   --ivory: #f4efe4;
-  --ivory-mute: #cfc4ae;
-  --ivory-dim: #a89880;
-  --copper: #c4894a;
+  --ivory-mute: #d8d0c0;
+  --ivory-dim: #b7aa94;
+  --copper: #d09a58;
   --line: rgb(247 243 234 / 0.1);
   --font-display: "Cormorant Garamond", "Times New Roman", serif;
   --font-body: "Outfit", "Segoe UI", sans-serif;
@@ -107,7 +107,7 @@ a:hover {
   top: 0;
   z-index: 40;
   height: var(--header-h);
-  background: color-mix(in srgb, var(--forest-deep) 88%, transparent);
+  background: color-mix(in srgb, var(--forest-deep) 92%, transparent);
 }
 
 .header-inner,
@@ -126,13 +126,17 @@ a:hover {
 }
 
 .brand-mark {
+  display: inline-flex;
+  align-items: center;
   color: var(--ivory);
   text-decoration: none;
 }
 
-.brand-mark img {
-  width: 2.2rem;
-  height: auto;
+.brand-mark img,
+.nav-logo {
+  display: block;
+  height: 2.4rem;
+  width: auto;
 }
 
 .brand-lockup {
@@ -244,7 +248,11 @@ a:hover {
 }
 
 .hero-logo {
-  width: min(11rem, 48vw);
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: min(16rem, 70vw);
+  max-height: min(20rem, 52vh);
 }
 
 .hero-name,

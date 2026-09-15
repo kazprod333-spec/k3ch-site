@@ -35,15 +35,13 @@ Laisser une chaîne vide (`""`) pour ne rien afficher. Le site n’invente aucun
 
 Ne jamais y placer de finances internes, de WhatsApp, d’accès opérationnels ou d’informations non publiques.
 
-## Remplacer le logo et les visuels
+## Logo officiel
 
-1. Déposer le fichier dans `public/` (exemple : `public/logo.svg` ou `public/assets/logo.png`).
-2. Dans `src/config.js`, renseigner `brand.logoSrc` avec le chemin public, par exemple `"/logo.svg"`.
-3. Ajuster `brand.logoAlt` si besoin.
+Le monogramme (arbre géométrique) se trouve dans `public/logo.png`. Il est branché via `brand.logoSrc` dans `src/config.js` et s’affiche dans la navigation et le hero, **sans recadrage ni retouche**.
 
-Si `logoSrc` reste vide, le site utilise le lockup typographique **K3CH**.
+Pour le remplacer : déposer le nouveau fichier au même chemin (ou un autre dans `public/`), puis mettre à jour `brand.logoSrc` et `brand.logoAlt`. Laisser `logoSrc` vide pour revenir au lockup typographique **K3CH**.
 
-Pour un visuel d’ambiance, ajouter les fichiers dans `public/assets/` puis les référencer depuis le CSS (`src/styles.css`) ou le HTML. Ne pas y verser de documents internes.
+Ne pas redessiner la marque. Conserver le ratio (largeur automatique, hauteur contrainte en CSS).
 
 ## Teaser Dondolie
 
@@ -59,6 +57,19 @@ Passer `dondolieTeaser` à `false` pour retirer la section et le lien de navigat
 
 Les textes du teaser se trouvent dans `copy.dondolieTitle` et `copy.dondolieText`.
 
+## Publication (GitHub Pages)
+
+`vite.config.js` utilise `base: "./"` : les chemins du build restent relatifs, adaptés à un site projet.
+
+Une fois Pages activé (Settings → Pages) :
+
+- **Deploy from a branch** : publier le contenu de `dist/` (branche `gh-pages`, ou dossier `/docs` selon le choix), **ou**
+- **GitHub Actions** : déployer le résultat de `npm run build`.
+
+Adresse prévue pour ce dépôt :
+
+`https://kazprod333-spec.github.io/k3ch-site/`
+
 ## Accessibilité et mouvement
 
 Le site est conçu mobile-first, avec navigation clavier, liens d’évitement et respect de `prefers-reduced-motion` (défilement instantané).
@@ -71,4 +82,5 @@ src/config.js    # marque, copy, contacts, options
 src/main.js      # hydratation, navigation, défilement
 src/styles.css
 public/favicon.svg
+public/logo.png
 ```
