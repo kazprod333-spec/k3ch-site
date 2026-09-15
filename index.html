@@ -3,17 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Maison de création à Alger. Studio, Music, Media — une signature artistique."
-    />
+    <meta name="description" content="Maison de création à Alger. Studio, Music, Media." />
     <meta name="theme-color" content="#0a1812" />
     <title>Maison K3CH Production — Alger</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,400&family=Outfit:wght@300;400&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -24,10 +21,7 @@
       <div class="header-inner">
         <a class="brand-mark" href="#accueil">
           <img data-bind="logo" alt="" hidden />
-          <span data-lockup>
-            <span class="brand-kicker">Maison</span>
-            <span class="brand-lockup" data-bind="lockup">K3CH</span>
-          </span>
+          <span class="brand-lockup" data-lockup data-bind="lockup">K3CH</span>
         </a>
 
         <button
@@ -54,104 +48,60 @@
 
     <main id="contenu">
       <section id="accueil" class="hero" aria-labelledby="hero-title">
-        <div class="hero-atmosphere" aria-hidden="true"></div>
         <div class="hero-inner">
-          <p class="eyebrow">
-            <span data-bind="city">Alger</span>
-            <span class="dot" aria-hidden="true"></span>
-            <span data-bind="country">Algérie</span>
-          </p>
-          <p class="hero-maison" data-bind="name">Maison K3CH Production</p>
           <h1 id="hero-title" class="hero-lockup">
             <img class="hero-logo" data-bind="logo" alt="" hidden />
             <span data-lockup data-bind="lockup">K3CH</span>
           </h1>
+          <p class="hero-name">
+            <span data-bind="name">Maison K3CH Production</span>
+            <span class="sep" aria-hidden="true">—</span>
+            <span data-bind="city">Alger</span>
+          </p>
           <p class="hero-tagline" data-bind="tagline">Studio · Music · Media</p>
-          <p class="hero-lead" data-bind="hero-lead">La forêt, la lumière, le geste.</p>
-          <a class="cta" href="#maison">Entrer dans la maison</a>
         </div>
       </section>
 
-      <section id="maison" class="section maison" aria-labelledby="maison-title" tabindex="-1">
-        <div class="section-inner" data-reveal>
-          <p class="section-kicker">Signature</p>
-          <h2 id="maison-title" data-bind="maison-title">La maison</h2>
-          <div class="maison-grid">
-            <div class="maison-copy" data-bind="maison-body">
-              <p>
-                Maison K3CH Production est une maison de création établie à Alger. Elle réunit le
-                studio, la musique et les médias dans une même exigence : une image nette, un son
-                juste, une présence qui dure.
-              </p>
-              <p>
-                Nous travaillons l’ombre et le cuivre, le silence et le rythme — une signature
-                artistique, sans bruit inutile.
-              </p>
-            </div>
-            <aside class="maison-aside" aria-label="Repères">
-              <p class="aside-label">Ville</p>
-              <p class="aside-value" data-bind="city">Alger</p>
-              <p class="aside-label">Champs</p>
-              <p class="aside-value" data-bind="tagline">Studio · Music · Media</p>
-            </aside>
+      <section id="maison" class="section" aria-labelledby="maison-title" tabindex="-1">
+        <div class="section-inner narrow">
+          <h2 id="maison-title" data-bind="maison-title">Maison</h2>
+          <div class="prose" data-bind="maison-body">
+            <p>Une maison de création à Alger — studio, musique, médias.</p>
           </div>
         </div>
       </section>
 
-      <section id="piliers" class="section pillars" aria-labelledby="pillars-title" tabindex="-1">
+      <section id="piliers" class="section" aria-labelledby="pillars-title" tabindex="-1">
         <div class="section-inner">
-          <header class="section-header" data-reveal>
-            <p class="section-kicker">Disciplines</p>
-            <h2 id="pillars-title" data-bind="pillars-title">Trois matières</h2>
-            <p class="section-intro" data-bind="pillars-intro">Un même regard, trois disciplines.</p>
-          </header>
+          <h2 id="pillars-title" class="visually-hidden" data-bind="pillars-title">Piliers</h2>
           <ul class="pillar-list">
-            <li class="pillar" data-pillar="studio" data-reveal>
-              <p class="pillar-kicker" data-bind="pillar-kicker">01</p>
+            <li data-pillar="studio">
               <h3 data-bind="pillar-title">Studio</h3>
-              <p data-bind="pillar-text">
-                Un espace pour poser le regard. Image, captation, post-production : le studio
-                accueille les formes qui demandent du temps.
-              </p>
+              <p data-bind="pillar-text">Image, captation.</p>
             </li>
-            <li class="pillar" data-pillar="music" data-reveal>
-              <p class="pillar-kicker" data-bind="pillar-kicker">02</p>
+            <li data-pillar="music">
               <h3 data-bind="pillar-title">Music</h3>
-              <p data-bind="pillar-text">
-                La musique comme matière, pas comme décor. Direction artistique, enregistrement,
-                accompagnement — le souffle avant le volume.
-              </p>
+              <p data-bind="pillar-text">Direction, enregistrement.</p>
             </li>
-            <li class="pillar" data-pillar="media" data-reveal>
-              <p class="pillar-kicker" data-bind="pillar-kicker">03</p>
+            <li data-pillar="media">
               <h3 data-bind="pillar-title">Media</h3>
-              <p data-bind="pillar-text">
-                Récits, identités, films et contenus. Une ligne nette : le fond d’abord, la forme
-                ensuite, jamais l’inverse.
-              </p>
+              <p data-bind="pillar-text">Récits, contenus.</p>
             </li>
           </ul>
         </div>
       </section>
 
-      <section id="dondolie" class="section dondolie" aria-labelledby="dondolie-title" tabindex="-1">
-        <div class="section-inner dondolie-inner" data-reveal>
-          <p class="section-kicker" data-bind="dondolie-kicker">En gestation</p>
+      <section id="dondolie" class="section" aria-labelledby="dondolie-title" tabindex="-1">
+        <div class="section-inner narrow">
           <h2 id="dondolie-title" data-bind="dondolie-title">Dondolie</h2>
-          <p class="dondolie-text" data-bind="dondolie-text">
-            Un projet se dessine. Une présence encore retenue — bientôt, sans rien dévoiler trop tôt.
-          </p>
+          <p class="prose" data-bind="dondolie-text">Bientôt.</p>
         </div>
       </section>
 
-      <section id="contact" class="section contact" aria-labelledby="contact-title" tabindex="-1">
-        <div class="section-inner" data-reveal>
-          <p class="section-kicker">Correspondance</p>
-          <h2 id="contact-title" data-bind="contact-title">Approcher la maison</h2>
-          <p class="contact-fallback" data-bind="contact-fallback">
-            Les coordonnées officielles seront publiées ici lorsqu’elles seront rendues publiques.
-            Aucun canal privé n’est affiché sur ce site.
-          </p>
+      <section id="contact" class="section" aria-labelledby="contact-title" tabindex="-1">
+        <div class="section-inner narrow">
+          <h2 id="contact-title" data-bind="contact-title">Contact</h2>
+          <p class="prose" data-bind="contact-fallback">Les coordonnées seront publiées ici.</p>
           <ul class="contact-list" data-bind="contact-list" hidden></ul>
         </div>
       </section>
@@ -159,12 +109,12 @@
 
     <footer class="site-footer">
       <div class="footer-inner">
-        <p class="footer-brand">
+        <p>
           <span data-bind="name">Maison K3CH Production</span>
-          <span class="dot" aria-hidden="true"></span>
+          <span class="sep" aria-hidden="true">—</span>
           <span data-bind="city">Alger</span>
         </p>
-        <p class="footer-meta">
+        <p>
           <span aria-hidden="true">©</span>
           <span data-bind="year"></span>
           <span data-bind="footer-rights">Tous droits réservés.</span>

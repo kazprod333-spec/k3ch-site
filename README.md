@@ -57,11 +57,11 @@ export const features = {
 
 Passer `dondolieTeaser` à `false` pour retirer la section et le lien de navigation.
 
-Les textes du teaser se trouvent dans `copy.dondolieKicker`, `copy.dondolieTitle` et `copy.dondolieText`.
+Les textes du teaser se trouvent dans `copy.dondolieTitle` et `copy.dondolieText`.
 
 ## Accessibilité et mouvement
 
-Le site est conçu mobile-first, avec navigation clavier, liens d’évitement et respect de `prefers-reduced-motion` (défilement instantané, pas d’animations d’apparition).
+Le site est conçu mobile-first, avec navigation clavier, liens d’évitement et respect de `prefers-reduced-motion` (défilement instantané).
 
 ## Structure
 
