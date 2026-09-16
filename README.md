@@ -59,16 +59,28 @@ Les textes du teaser se trouvent dans `copy.dondolieTitle` et `copy.dondolieText
 
 ## Publication (GitHub Pages)
 
-Dans le dépôt GitHub : **Settings → Pages**.
+Le workflow `.github/workflows/deploy-pages.yml` lance `npm ci`, `npm run build`, puis déploie le dossier `dist/` via les actions officielles (`upload-pages-artifact` + `deploy-pages`).
 
-- **Deploy from a branch** : publier le contenu de `dist/` (branche `gh-pages`, ou dossier `/docs`), **ou**
-- **GitHub Actions** : lancer `npm run build` et déployer `dist/`.
+### Action unique à faire une fois dans GitHub
 
-`vite.config.js` utilise `base: "./"` (chemins relatifs). C’est le choix adapté à ce repo projet : le site fonctionne en aperçu local et, une fois Pages activé, à :
+1. Ouvrir le dépôt → **Settings → Pages**.
+2. Sous **Build and deployment**, **Source** : choisir **GitHub Actions** (pas « Deploy from a branch »).
+3. Enregistrer. Au prochain push sur `main` (ou via **Actions → Deploy GitHub Pages → Run workflow**), le site est publié à :
 
 `https://kazprod333-spec.github.io/k3ch-site/`
 
-L’alternative `base: "/k3ch-site/"` n’est pas retenue, pour ne pas casser `npm run preview` ni un éventuel domaine personnalisé.
+Sans cette étape, l’URL reste en 404 même si le workflow existe.
+
+### Base Vite (pages projet)
+
+`vite.config.js` fixe `base: "/k3ch-site/"` pour que CSS, JS et assets pointent vers `/k3ch-site/...` et non vers la racine `github.io`.
+
+En local, Vite sert donc le site sous ce préfixe :
+
+- `npm run dev` → [http://localhost:5173/k3ch-site/](http://localhost:5173/k3ch-site/)
+- `npm run preview` → [http://localhost:4173/k3ch-site/](http://localhost:4173/k3ch-site/)
+
+Ouvrir `/` sans le préfixe affiche une page vide ou une 404 ; c’est attendu. Un domaine personnalisé à la racine impliquerait de repasser `base` à `/`.
 
 ## Accessibilité et mouvement
 
