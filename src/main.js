@@ -1,12 +1,21 @@
 import { brand, contact, copy, features } from "./config.js";
 import "./styles.css";
 
+document.documentElement.classList.add("js");
+
 const prefersReducedMotion = window.matchMedia(
   "(prefers-reduced-motion: reduce)",
 ).matches;
 
 function text(selector, value) {
   document.querySelectorAll(selector).forEach((el) => {
+    el.textContent = value;
+  });
+}
+
+function bindWithin(root, key, value) {
+  if (!root || value == null) return;
+  root.querySelectorAll(`[data-bind='${key}']`).forEach((el) => {
     el.textContent = value;
   });
 }
@@ -20,8 +29,14 @@ function applyBrand() {
   text("[data-bind='name']", brand.name);
   text("[data-bind='city']", brand.city);
   text("[data-bind='tagline']", brand.tagline);
+  text("[data-bind='hero-title']", copy.heroTitle);
   text("[data-bind='maison-title']", copy.maisonTitle);
-  text("[data-bind='pillars-title']", copy.pillarsTitle);
+  text("[data-bind='atelier-title']", copy.atelierTitle);
+  text("[data-bind='atelier-intro']", copy.atelierIntro);
+  text("[data-bind='works-note']", copy.worksNote);
+  text("[data-bind='parcours-title']", copy.parcoursTitle);
+  text("[data-bind='parcours-intro']", copy.parcoursIntro);
+  text("[data-bind='dondolie-kicker']", copy.dondolieKicker);
   text("[data-bind='dondolie-title']", copy.dondolieTitle);
   text("[data-bind='dondolie-text']", copy.dondolieText);
   text("[data-bind='contact-title']", copy.contactTitle);
@@ -40,8 +55,21 @@ function applyBrand() {
   }
 
   copy.pillars.forEach((pillar) => {
-    text(`[data-pillar='${pillar.id}'] [data-bind='pillar-title']`, pillar.title);
-    text(`[data-pillar='${pillar.id}'] [data-bind='pillar-text']`, pillar.text);
+    const root = document.querySelector(`[data-pillar='${pillar.id}']`);
+    if (!root) return;
+    bindWithin(root, "pillar-number", pillar.number);
+    bindWithin(root, "pillar-title", pillar.title);
+    bindWithin(root, "pillar-headline", pillar.headline);
+    bindWithin(root, "pillar-text", pillar.text);
+    bindWithin(root, "pillar-aside", pillar.aside);
+  });
+
+  copy.parcours.forEach((step) => {
+    const root = document.querySelector(`[data-step='${step.id}']`);
+    if (!root) return;
+    bindWithin(root, "step-number", step.number);
+    bindWithin(root, "step-title", step.title);
+    bindWithin(root, "step-text", step.text);
   });
 
   const lockups = document.querySelectorAll("[data-lockup]");
@@ -49,7 +77,9 @@ function applyBrand() {
   if (brand.logoSrc) {
     logos.forEach((logoImg) => {
       logoImg.src = brand.logoSrc;
-      logoImg.alt = brand.logoAlt || brand.name;
+      if (logoImg.getAttribute("alt") !== "") {
+        logoImg.alt = brand.logoAlt || brand.name;
+      }
       logoImg.hidden = false;
     });
     lockups.forEach((wrap) => {
@@ -144,6 +174,7 @@ function setupNav() {
   const setOpen = (open) => {
     toggle.setAttribute("aria-expanded", String(open));
     panel.dataset.open = String(open);
+    document.body.classList.toggle("nav-open", open);
     const label = toggle.querySelector(".visually-hidden");
     if (label) label.textContent = open ? "Fermer le menu" : "Ouvrir le menu";
   };
@@ -180,8 +211,30 @@ function setupSmoothScroll() {
   });
 }
 
+function setupReveal() {
+  const els = document.querySelectorAll("[data-reveal]");
+  if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+    els.forEach((el) => el.classList.add("is-visible"));
+    return;
+  }
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        io.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.16, rootMargin: "0px 0px -8% 0px" },
+  );
+
+  els.forEach((el) => io.observe(el));
+}
+
 applyBrand();
 applyDondolie();
 applyContact();
 setupNav();
 setupSmoothScroll();
+setupReveal();

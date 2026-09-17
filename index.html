@@ -3,14 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Maison de création à Alger. Studio, Music, Media." />
+    <meta
+      name="description"
+      content="Maison de création à Alger. Studio, Music, Media — de l’intention à la réalisation."
+    />
     <meta name="theme-color" content="#000000" />
     <title>Maison K3CH Production — Alger</title>
     <link rel="icon" href="%BASE_URL%favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,400&family=Outfit:wght@300;400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500&family=Syne:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -44,8 +47,9 @@
 
         <nav id="navigation" class="site-nav" data-nav-panel data-open="false" aria-label="Navigation principale">
           <ul>
+            <li><a href="#accueil">Accueil</a></li>
             <li><a href="#maison">Maison</a></li>
-            <li><a href="#piliers">Piliers</a></li>
+            <li><a href="#atelier">Atelier</a></li>
             <li data-nav="dondolie"><a href="#dondolie">Dondolie</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
@@ -56,66 +60,141 @@
     <main id="contenu">
       <section id="accueil" class="hero" aria-labelledby="hero-title">
         <div class="hero-inner">
-          <h1 id="hero-title" class="hero-lockup">
+          <p class="hero-emblem">
             <img
               class="hero-logo"
               data-bind="logo"
               src="./logo.png"
               width="497"
               height="603"
-              alt="Maison K3CH Production"
+              alt=""
             />
+            <span class="visually-hidden">Maison K3CH Production</span>
             <span data-lockup data-bind="lockup" hidden>K3CH</span>
-          </h1>
+          </p>
           <p class="hero-name">
             <span data-bind="name">Maison K3CH Production</span>
             <span class="sep" aria-hidden="true">—</span>
             <span data-bind="city">Alger</span>
           </p>
+          <h1 id="hero-title" class="hero-title" data-bind="hero-title">Une maison de création.</h1>
           <p class="hero-tagline" data-bind="tagline">Studio · Music · Media</p>
+          <a class="hero-link" href="#atelier">Voir l’atelier</a>
         </div>
       </section>
 
-      <section id="maison" class="section" aria-labelledby="maison-title" tabindex="-1">
-        <div class="section-inner narrow">
-          <h2 id="maison-title" data-bind="maison-title">Maison</h2>
-          <div class="prose" data-bind="maison-body">
-            <p>Une maison de création à Alger — studio, musique, médias.</p>
+      <section id="maison" class="section maison" aria-labelledby="maison-title" tabindex="-1">
+        <div class="section-inner">
+          <p class="section-index" aria-hidden="true">01</p>
+          <h2 id="maison-title" data-bind="maison-title" data-reveal>Maison</h2>
+          <div class="prose" data-bind="maison-body" data-reveal>
+            <p>
+              K3CH réunit le studio, la musique et les médias à Alger. Une même exigence : image
+              nette, son juste, récit qui reste.
+            </p>
           </div>
         </div>
       </section>
 
-      <section id="piliers" class="section" aria-labelledby="pillars-title" tabindex="-1">
+      <section id="atelier" class="section atelier" aria-labelledby="atelier-title" tabindex="-1">
         <div class="section-inner">
-          <h2 id="pillars-title" class="visually-hidden" data-bind="pillars-title">Piliers</h2>
-          <ul class="pillar-list">
-            <li data-pillar="studio">
-              <h3 data-bind="pillar-title">Studio</h3>
-              <p data-bind="pillar-text">Image, captation.</p>
+          <header class="section-header">
+            <p class="section-index" aria-hidden="true">02</p>
+            <h2 id="atelier-title" data-bind="atelier-title" data-reveal>Atelier</h2>
+            <p class="section-intro" data-bind="atelier-intro" data-reveal>Trois matières. Un même geste.</p>
+          </header>
+
+          <ol class="step-list">
+            <li class="step" data-pillar="studio" data-reveal>
+              <div class="step-copy">
+                <p class="step-kicker">
+                  <span data-bind="pillar-number">01</span>
+                  <span data-bind="pillar-title">Studio</span>
+                </p>
+                <h3 data-bind="pillar-headline">L’image, nette.</h3>
+                <p class="step-body" data-bind="pillar-text">
+                  Captation, plateau, lumière. On cadre ce qui doit rester.
+                </p>
+                <p class="step-aside" data-bind="pillar-aside">Le silence, juste avant le clap.</p>
+              </div>
+              <p class="step-badge" aria-hidden="true" data-bind="pillar-number">01</p>
             </li>
-            <li data-pillar="music">
-              <h3 data-bind="pillar-title">Music</h3>
-              <p data-bind="pillar-text">Direction, enregistrement.</p>
+            <li class="step" data-pillar="music" data-reveal>
+              <div class="step-copy">
+                <p class="step-kicker">
+                  <span data-bind="pillar-number">02</span>
+                  <span data-bind="pillar-title">Music</span>
+                </p>
+                <h3 data-bind="pillar-headline">Le son, juste.</h3>
+                <p class="step-body" data-bind="pillar-text">
+                  Direction, enregistrement, mix. La musique porte le récit — elle n’est pas un décor.
+                </p>
+                <p class="step-aside" data-bind="pillar-aside">Quand ça sonne, on le sent.</p>
+              </div>
+              <p class="step-badge" aria-hidden="true" data-bind="pillar-number">02</p>
             </li>
-            <li data-pillar="media">
-              <h3 data-bind="pillar-title">Media</h3>
-              <p data-bind="pillar-text">Récits, contenus.</p>
+            <li class="step" data-pillar="media" data-reveal>
+              <div class="step-copy">
+                <p class="step-kicker">
+                  <span data-bind="pillar-number">03</span>
+                  <span data-bind="pillar-title">Media</span>
+                </p>
+                <h3 data-bind="pillar-headline">Le récit, clair.</h3>
+                <p class="step-body" data-bind="pillar-text">
+                  Formats, plateformes, contenus. Être vu, pas seulement publié.
+                </p>
+                <p class="step-aside" data-bind="pillar-aside">Moins de bruit. Plus de présence.</p>
+              </div>
+              <p class="step-badge" aria-hidden="true" data-bind="pillar-number">03</p>
             </li>
-          </ul>
+          </ol>
+
+          <p class="works-note" data-bind="works-note" data-reveal>Réalisations — à venir.</p>
         </div>
       </section>
 
-      <section id="dondolie" class="section" aria-labelledby="dondolie-title" tabindex="-1">
-        <div class="section-inner narrow">
-          <h2 id="dondolie-title" data-bind="dondolie-title">Dondolie</h2>
-          <p class="prose" data-bind="dondolie-text">Bientôt.</p>
+      <section id="parcours" class="section parcours" aria-labelledby="parcours-title" tabindex="-1">
+        <div class="section-inner">
+          <header class="section-header compact">
+            <h2 id="parcours-title" data-bind="parcours-title" data-reveal>Parcours</h2>
+            <p class="section-intro" data-bind="parcours-intro" data-reveal>
+              De l’intention à la réalisation.
+            </p>
+          </header>
+          <ol class="parcours-list">
+            <li data-step="intention" data-reveal>
+              <p class="parcours-number" data-bind="step-number">01</p>
+              <h3 data-bind="step-title">Intention</h3>
+              <p data-bind="step-text">On écoute. On clarifie le geste.</p>
+            </li>
+            <li data-step="creation" data-reveal>
+              <p class="parcours-number" data-bind="step-number">02</p>
+              <h3 data-bind="step-title">Création</h3>
+              <p data-bind="step-text">L’idée prend forme — cadre, rythme, matière.</p>
+            </li>
+            <li data-step="realisation" data-reveal>
+              <p class="parcours-number" data-bind="step-number">03</p>
+              <h3 data-bind="step-title">Réalisation</h3>
+              <p data-bind="step-text">On tourne, on assemble, on livre.</p>
+            </li>
+          </ol>
         </div>
       </section>
 
-      <section id="contact" class="section" aria-labelledby="contact-title" tabindex="-1">
+      <section id="dondolie" class="section dondolie" aria-labelledby="dondolie-title" tabindex="-1">
         <div class="section-inner narrow">
-          <h2 id="contact-title" data-bind="contact-title">Contact</h2>
-          <p class="prose" data-bind="contact-fallback">Les coordonnées seront publiées ici.</p>
+          <p class="dondolie-kicker" data-bind="dondolie-kicker" data-reveal>Merch</p>
+          <h2 id="dondolie-title" data-bind="dondolie-title" data-reveal>Dondolie</h2>
+          <p class="prose" data-bind="dondolie-text" data-reveal>Une ligne à venir.</p>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact" aria-labelledby="contact-title" tabindex="-1">
+        <div class="section-inner">
+          <h2 id="contact-title" data-bind="contact-title" data-reveal>Parlons-en</h2>
+          <p class="contact-fallback prose" data-bind="contact-fallback" data-reveal>
+            Les coordonnées seront publiées ici.
+          </p>
           <ul class="contact-list" data-bind="contact-list" hidden></ul>
         </div>
       </section>

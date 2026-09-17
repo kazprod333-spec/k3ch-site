@@ -4,6 +4,8 @@ Site vitrine one-page de **Maison K3CH Production** (Alger — Studio · Music �
 
 Implémentation simple : **Vite + HTML / CSS / JS** vanilla. Les textes de marque, les contacts publics et l’affichage du teaser Dondolie sont centralisés dans `src/config.js`.
 
+La page unique enchaîne un accueil cinématographique (hero + maison) et un atelier façon studio (piliers numérotés Studio / Music / Media, parcours intention → réalisation, teaser merch Dondolie, bloc contact). Pas de pages séparées : la navigation ancre ces sections.
+
 ## Prérequis
 
 - Node.js 20 ou plus récent
@@ -87,6 +89,15 @@ Ouvrir `/` sans le préfixe affiche une page vide ou une 404 ; c’est attendu. 
 Le site est conçu mobile-first, avec navigation clavier, liens d’évitement et respect de `prefers-reduced-motion` (défilement instantané).
 
 ## Structure
+
+One-page, ancres internes :
+
+1. **Accueil** — logo officiel, titre, Alger, Studio · Music · Media
+2. **Maison** — pitch court
+3. **Atelier** — piliers numérotés (Studio / Music / Media) + note « réalisations à venir »
+4. **Parcours** — Intention → Création → Réalisation
+5. **Dondolie** — teaser merch optionnel (`features.dondolieTeaser`)
+6. **Contact** — message d’attente tant que `contact` est vide
 
 ```
 index.html

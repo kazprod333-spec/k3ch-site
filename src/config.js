@@ -16,30 +16,68 @@ export const brand = {
 
 export const copy = {
   documentTitle: "Maison K3CH Production — Alger",
-  documentDescription: "Maison de création à Alger. Studio, Music, Media.",
+  documentDescription:
+    "Maison de création à Alger. Studio, Music, Media — de l’intention à la réalisation.",
+  heroTitle: "Une maison de création.",
   maisonTitle: "Maison",
-  maisonBody: ["Une maison de création à Alger — studio, musique, médias."],
-  pillarsTitle: "Piliers",
+  maisonBody: [
+    "K3CH réunit le studio, la musique et les médias à Alger. Une même exigence : image nette, son juste, récit qui reste.",
+  ],
+  atelierTitle: "Atelier",
+  atelierIntro: "Trois matières. Un même geste.",
+  worksNote: "Réalisations — à venir.",
   pillars: [
     {
       id: "studio",
+      number: "01",
       title: "Studio",
-      text: "Image, captation.",
+      headline: "L’image, nette.",
+      text: "Captation, plateau, lumière. On cadre ce qui doit rester.",
+      aside: "Le silence, juste avant le clap.",
     },
     {
       id: "music",
+      number: "02",
       title: "Music",
-      text: "Direction, enregistrement.",
+      headline: "Le son, juste.",
+      text: "Direction, enregistrement, mix. La musique porte le récit — elle n’est pas un décor.",
+      aside: "Quand ça sonne, on le sent.",
     },
     {
       id: "media",
+      number: "03",
       title: "Media",
-      text: "Récits, contenus.",
+      headline: "Le récit, clair.",
+      text: "Formats, plateformes, contenus. Être vu, pas seulement publié.",
+      aside: "Moins de bruit. Plus de présence.",
     },
   ],
+  parcoursTitle: "Parcours",
+  parcoursIntro: "De l’intention à la réalisation.",
+  parcours: [
+    {
+      id: "intention",
+      number: "01",
+      title: "Intention",
+      text: "On écoute. On clarifie le geste.",
+    },
+    {
+      id: "creation",
+      number: "02",
+      title: "Création",
+      text: "L’idée prend forme — cadre, rythme, matière.",
+    },
+    {
+      id: "realisation",
+      number: "03",
+      title: "Réalisation",
+      text: "On tourne, on assemble, on livre.",
+    },
+  ],
+  dondolieKicker: "Merch",
   dondolieTitle: "Dondolie",
-  dondolieText: "Bientôt.",
-  contactTitle: "Contact",
+  dondolieText: "Une ligne à venir.",
+  contactTitle: "Parlons-en",
   contactFallback: "Les coordonnées seront publiées ici.",
   footerRights: "Tous droits réservés.",
 };
@@ -59,6 +97,6 @@ export const contact = {
 };
 
 export const features = {
-  /** Teaser artistique optionnel. Passer à false pour le retirer. */
+  /** Teaser merch optionnel. Passer à false pour le retirer. */
   dondolieTeaser: true,
 };
