@@ -282,6 +282,11 @@ body.nav-open::after {
   text-transform: uppercase;
 }
 
+.hero-link [aria-hidden="true"] {
+  font-size: 0.95rem;
+  letter-spacing: 0;
+}
+
 .hero-link:hover,
 .hero-link:focus-visible {
   color: var(--ivory);
@@ -392,6 +397,10 @@ body.nav-open::after {
   color: var(--ivory-dim);
 }
 
+.maison {
+  padding-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+
 .step {
   padding: clamp(3.5rem, 9vw, 7rem) 0 0;
 }
@@ -452,9 +461,14 @@ body.nav-open::after {
 }
 
 .step-visual[data-motif="studio"]::before {
+  inset: auto;
+  top: 50%;
+  left: 62%;
+  width: min(18rem, 46%);
+  height: min(18rem, 72%);
   border: 1px solid rgb(244 241 234 / 0.22);
   border-radius: 50%;
-  inset: 12% 28%;
+  transform: translate(-50%, -50%);
 }
 
 .step-visual[data-motif="music"]::before {
@@ -646,15 +660,12 @@ body.nav-open::after {
     min-height: min(40vh, 22rem);
   }
 
-  .step-top {
-    grid-template-columns: minmax(0, 26rem) 1fr auto;
-  }
-
   .step-badge {
     width: 5.5rem;
     height: 5.5rem;
     font-size: 1.3rem;
     margin-top: 0.2rem;
+    justify-self: end;
   }
 
   .parcours-list {
