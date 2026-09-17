@@ -4,6 +4,8 @@ Site vitrine one-page de **Maison K3CH Production** (Alger — Studio · Music �
 
 Implémentation simple : **Vite + HTML / CSS / JS** vanilla. Les textes de marque, les contacts publics et l’affichage du teaser Dondolie sont centralisés dans `src/config.js`.
 
+La page unique enchaîne un accueil manifesto (hero + maison + grille des trois matières) et un atelier façon studio (étapes numérotées Studio / Music / Media, parcours intention → réalisation, teaser merch Dondolie, bloc contact). Pas de pages séparées : la navigation ancre ces sections.
+
 ## Prérequis
 
 - Node.js 20 ou plus récent
@@ -37,7 +39,7 @@ Ne jamais y placer de finances internes, de WhatsApp, d’accès opérationnels 
 
 ## Logo officiel
 
-Le monogramme (arbre géométrique) se trouve dans `public/logo.png`. Il est branché via `brand.logoSrc` dans `src/config.js` et s’affiche dans la navigation et le hero, **sans recadrage ni retouche**.
+Le monogramme (arbre géométrique) se trouve dans `public/logo.png`. Il est branché via `brand.logoSrc` dans `src/config.js` et s’affiche dans la navigation, **sans recadrage ni retouche**. Le hero reste un manifesto typographique ; le logo n’est pas redessiné.
 
 Pour le remplacer : déposer le nouveau fichier au même chemin (ou un autre dans `public/`), puis mettre à jour `brand.logoSrc` et `brand.logoAlt`. Laisser `logoSrc` vide pour revenir au lockup typographique **K3CH**.
 
@@ -87,6 +89,15 @@ Ouvrir `/` sans le préfixe affiche une page vide ou une 404 ; c’est attendu. 
 Le site est conçu mobile-first, avec navigation clavier, liens d’évitement et respect de `prefers-reduced-motion` (défilement instantané).
 
 ## Structure
+
+One-page, ancres internes :
+
+1. **Accueil** — manifesto centré + « Entrer »
+2. **Maison** — grand titre, pitch, grille Studio / Music / Media, note « réalisations à venir »
+3. **Atelier** — étapes numérotées (titre, texte étroit, chiffre cerclé, aparté visuel)
+4. **Parcours** — Intention → Création → Réalisation
+5. **Dondolie** — teaser merch optionnel (`features.dondolieTeaser`)
+6. **Contact** — titre sobre + message d’attente tant que `contact` est vide (pastilles sociales seulement si renseignées)
 
 ```
 index.html

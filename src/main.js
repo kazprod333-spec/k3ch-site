@@ -1,12 +1,21 @@
 import { brand, contact, copy, features } from "./config.js";
 import "./styles.css";
 
+document.documentElement.classList.add("js");
+
 const prefersReducedMotion = window.matchMedia(
   "(prefers-reduced-motion: reduce)",
 ).matches;
 
 function text(selector, value) {
   document.querySelectorAll(selector).forEach((el) => {
+    el.textContent = value;
+  });
+}
+
+function bindWithin(root, key, value) {
+  if (!root || value == null) return;
+  root.querySelectorAll(`[data-bind='${key}']`).forEach((el) => {
     el.textContent = value;
   });
 }
@@ -20,8 +29,17 @@ function applyBrand() {
   text("[data-bind='name']", brand.name);
   text("[data-bind='city']", brand.city);
   text("[data-bind='tagline']", brand.tagline);
+  text("[data-bind='hero-title']", copy.heroTitle);
+  text("[data-bind='hero-line']", copy.heroLine);
+  text("[data-bind='hero-cta']", copy.heroCta);
   text("[data-bind='maison-title']", copy.maisonTitle);
-  text("[data-bind='pillars-title']", copy.pillarsTitle);
+  text("[data-bind='maison-lede']", copy.maisonLede);
+  text("[data-bind='atelier-title']", copy.atelierTitle);
+  text("[data-bind='atelier-intro']", copy.atelierIntro);
+  text("[data-bind='works-note']", copy.worksNote);
+  text("[data-bind='parcours-title']", copy.parcoursTitle);
+  text("[data-bind='parcours-intro']", copy.parcoursIntro);
+  text("[data-bind='dondolie-kicker']", copy.dondolieKicker);
   text("[data-bind='dondolie-title']", copy.dondolieTitle);
   text("[data-bind='dondolie-text']", copy.dondolieText);
   text("[data-bind='contact-title']", copy.contactTitle);
@@ -40,8 +58,23 @@ function applyBrand() {
   }
 
   copy.pillars.forEach((pillar) => {
-    text(`[data-pillar='${pillar.id}'] [data-bind='pillar-title']`, pillar.title);
-    text(`[data-pillar='${pillar.id}'] [data-bind='pillar-text']`, pillar.text);
+    document
+      .querySelectorAll(`[data-pillar='${pillar.id}'], [data-work='${pillar.id}']`)
+      .forEach((root) => {
+        bindWithin(root, "pillar-number", pillar.number);
+        bindWithin(root, "pillar-title", pillar.title);
+        bindWithin(root, "pillar-headline", pillar.headline);
+        bindWithin(root, "pillar-text", pillar.text);
+        bindWithin(root, "pillar-aside", pillar.aside);
+      });
+  });
+
+  copy.parcours.forEach((step) => {
+    const root = document.querySelector(`[data-step='${step.id}']`);
+    if (!root) return;
+    bindWithin(root, "step-number", step.number);
+    bindWithin(root, "step-title", step.title);
+    bindWithin(root, "step-text", step.text);
   });
 
   const lockups = document.querySelectorAll("[data-lockup]");
@@ -49,7 +82,9 @@ function applyBrand() {
   if (brand.logoSrc) {
     logos.forEach((logoImg) => {
       logoImg.src = brand.logoSrc;
-      logoImg.alt = brand.logoAlt || brand.name;
+      if (logoImg.getAttribute("alt") !== "") {
+        logoImg.alt = brand.logoAlt || brand.name;
+      }
       logoImg.hidden = false;
     });
     lockups.forEach((wrap) => {
@@ -78,6 +113,7 @@ function publicContacts() {
   const items = [];
   if (contact.email) {
     items.push({
+      kind: "text",
       label: "Courriel",
       href: `mailto:${contact.email}`,
       value: contact.email,
@@ -85,55 +121,92 @@ function publicContacts() {
   }
   if (contact.phone) {
     items.push({
+      kind: "text",
       label: "Téléphone",
       href: `tel:${contact.phone.replace(/\s+/g, "")}`,
       value: contact.phone,
     });
   }
   if (contact.instagram) {
-    items.push({ label: "Instagram", href: contact.instagram, value: "Instagram" });
+    items.push({
+      kind: "orb",
+      label: "Instagram",
+      href: contact.instagram,
+      value: "Instagram",
+    });
   }
   if (contact.youtube) {
-    items.push({ label: "YouTube", href: contact.youtube, value: "YouTube" });
+    items.push({
+      kind: "orb",
+      label: "YouTube",
+      href: contact.youtube,
+      value: "YouTube",
+    });
   }
   if (contact.site) {
-    items.push({ label: "Site", href: contact.site, value: contact.site });
+    items.push({
+      kind: "orb",
+      label: "Site",
+      href: contact.site,
+      value: "Site",
+    });
   }
   return items;
 }
 
 function applyContact() {
   const list = document.querySelector("[data-bind='contact-list']");
+  const orbs = document.querySelector("[data-bind='contact-orbs']");
   const fallback = document.querySelector("[data-bind='contact-fallback']");
   if (!list || !fallback) return;
 
   const items = publicContacts();
+  const textItems = items.filter((item) => item.kind === "text");
+  const orbItems = items.filter((item) => item.kind === "orb");
   list.replaceChildren();
+  if (orbs) orbs.replaceChildren();
 
   if (!items.length) {
     fallback.hidden = false;
     fallback.textContent = copy.contactFallback;
     list.hidden = true;
+    if (orbs) orbs.hidden = true;
     return;
   }
 
   fallback.hidden = true;
-  list.hidden = false;
-  items.forEach((item) => {
-    const li = document.createElement("li");
-    const a = document.createElement("a");
-    a.href = item.href;
-    a.textContent = item.value;
-    if (item.href.startsWith("http")) {
-      a.rel = "noopener noreferrer";
-      a.target = "_blank";
+
+  if (textItems.length) {
+    list.hidden = false;
+    textItems.forEach((item) => {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = item.href;
+      a.textContent = item.value;
+      li.append(a);
+      list.append(li);
+    });
+  } else {
+    list.hidden = true;
+  }
+
+  if (orbs) {
+    if (!orbItems.length) {
+      orbs.hidden = true;
+    } else {
+      orbs.hidden = false;
+      orbItems.forEach((item) => {
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        a.href = item.href;
+        a.textContent = item.value;
+        a.rel = "noopener noreferrer";
+        a.target = "_blank";
+        li.append(a);
+        orbs.append(li);
+      });
     }
-    const span = document.createElement("span");
-    span.className = "contact-label";
-    span.textContent = item.label;
-    li.append(span, a);
-    list.append(li);
-  });
+  }
 }
 
 function setupNav() {
@@ -144,6 +217,7 @@ function setupNav() {
   const setOpen = (open) => {
     toggle.setAttribute("aria-expanded", String(open));
     panel.dataset.open = String(open);
+    document.body.classList.toggle("nav-open", open);
     const label = toggle.querySelector(".visually-hidden");
     if (label) label.textContent = open ? "Fermer le menu" : "Ouvrir le menu";
   };
@@ -180,8 +254,30 @@ function setupSmoothScroll() {
   });
 }
 
+function setupReveal() {
+  const els = document.querySelectorAll("[data-reveal]");
+  if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+    els.forEach((el) => el.classList.add("is-visible"));
+    return;
+  }
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        io.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -6% 0px" },
+  );
+
+  els.forEach((el) => io.observe(el));
+}
+
 applyBrand();
 applyDondolie();
 applyContact();
 setupNav();
 setupSmoothScroll();
+setupReveal();
