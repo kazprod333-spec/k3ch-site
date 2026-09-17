@@ -1,20 +1,16 @@
 :root {
   --bg: #000000;
-  --bg-soft: #0a0a0a;
-  --ivory: #f4efe4;
-  --ivory-mute: #cfc6b6;
-  --ivory-dim: #9a8f7c;
-  --copper: #d09a58;
-  --copper-soft: rgb(208 154 88 / 0.72);
-  --line: rgb(244 239 228 / 0.12);
-  --font-display: "Cormorant Garamond", "Times New Roman", serif;
-  --font-figure: "Syne", "Outfit", "Segoe UI", sans-serif;
-  --font-body: "Outfit", "Segoe UI", sans-serif;
-  --space: clamp(1.5rem, 5vw, 4.5rem);
-  --section: clamp(5rem, 14vw, 10rem);
-  --content: min(72rem, calc(100% - 2 * var(--space)));
-  --measure: 34rem;
-  --header-h: 4.25rem;
+  --ivory: #f4f1ea;
+  --ivory-mute: #c8c4bb;
+  --ivory-dim: #8f8a82;
+  --copper: #c9a06a;
+  --line: rgb(244 241 234 / 0.14);
+  --font: "Outfit", "Segoe UI", sans-serif;
+  --space: clamp(1.35rem, 5.5vw, 5.25rem);
+  --section: clamp(5.5rem, 16vw, 11rem);
+  --content: min(84rem, calc(100% - 2 * var(--space)));
+  --measure: 26rem;
+  --header-h: 4.5rem;
   color-scheme: dark;
 }
 
@@ -26,7 +22,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: calc(var(--header-h) + 0.75rem);
+  scroll-padding-top: calc(var(--header-h) + 0.5rem);
   background: var(--bg);
 }
 
@@ -47,10 +43,10 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: var(--font-body);
-  font-weight: 300;
+  font-family: var(--font);
+  font-weight: 400;
   font-size: 1.05rem;
-  line-height: 1.7;
+  line-height: 1.55;
   color: var(--ivory-mute);
   background: var(--bg);
 }
@@ -65,13 +61,13 @@ img {
 }
 
 a {
-  color: var(--copper);
+  color: var(--ivory);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.22em;
 }
 
 a:hover {
-  color: var(--ivory);
+  color: var(--copper);
 }
 
 :focus {
@@ -116,7 +112,6 @@ a:hover {
   z-index: 40;
   height: var(--header-h);
   background: var(--bg);
-  border-bottom: 1px solid var(--line);
 }
 
 .header-inner,
@@ -144,15 +139,14 @@ a:hover {
 .brand-mark img,
 .nav-logo {
   display: block;
-  height: 2.65rem;
+  height: 2.55rem;
   width: auto;
 }
 
 .brand-lockup {
-  font-family: var(--font-figure);
   font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: 0.28em;
+  font-weight: 500;
+  letter-spacing: 0.22em;
 }
 
 .nav-toggle {
@@ -204,7 +198,6 @@ a:hover {
   z-index: 41;
   padding-inline: var(--space);
   background: var(--bg);
-  border-top: 1px solid var(--line);
   visibility: hidden;
   opacity: 0;
 }
@@ -230,19 +223,17 @@ body.nav-open::after {
   display: flex;
   flex-direction: column;
   margin: 0;
-  padding: 0.5rem 0 1.25rem;
+  padding: 0.35rem 0 1.4rem;
   list-style: none;
 }
 
 .site-nav a {
   display: block;
-  padding: 0.85rem 0;
+  padding: 0.8rem 0;
   color: var(--ivory-mute);
   text-decoration: none;
-  font-size: 0.82rem;
+  font-size: 1rem;
   font-weight: 400;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
 }
 
 .site-nav a:hover,
@@ -254,83 +245,46 @@ body.nav-open::after {
   display: grid;
   min-height: calc(100svh - var(--header-h));
   place-items: center;
-  padding: 4.5rem var(--space) 5.5rem;
-  background:
-    radial-gradient(ellipse at 50% 28%, rgb(208 154 88 / 0.08), transparent 46%),
-    var(--bg);
+  padding: 3rem var(--space) 4rem;
 }
 
 .hero-inner {
   display: grid;
   justify-items: center;
   text-align: center;
-  gap: 1.1rem;
-  max-width: 48rem;
+  gap: 2.25rem;
+  max-width: 46rem;
 }
 
-.hero-emblem {
-  margin: 0 0 0.35rem;
-}
-
-.hero-logo {
-  display: block;
-  width: auto;
-  height: auto;
-  max-width: min(15rem, 58vw);
-  max-height: min(18rem, 42vh);
-}
-
-.hero-emblem [data-lockup] {
-  display: block;
-  font-family: var(--font-figure);
-  font-size: clamp(4rem, 14vw, 7.5rem);
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--ivory);
-  line-height: 0.9;
-}
-
-.hero-name {
+.hero-title,
+.hero h1 {
   margin: 0;
-  font-size: 0.78rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--ivory-dim);
-}
-
-.hero-title {
-  margin: 0.35rem 0 0;
-  font-family: var(--font-display);
-  font-size: clamp(2.6rem, 7.4vw, 5.4rem);
-  font-weight: 500;
-  line-height: 0.98;
+  font-size: clamp(1.55rem, 3.4vw, 2.15rem);
+  font-weight: 400;
+  line-height: 1.35;
   letter-spacing: -0.02em;
   color: var(--ivory);
 }
 
-.hero-tagline {
-  margin: 0.15rem 0 0;
-  font-size: 0.92rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--copper);
+.hero-line {
+  display: block;
+  margin-top: 0.35rem;
 }
 
 .hero-link {
-  margin-top: 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
   color: var(--ivory-mute);
   text-decoration: none;
-  font-size: 0.78rem;
-  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  border-bottom: 1px solid rgb(208 154 88 / 0.55);
-  padding-bottom: 0.2rem;
 }
 
 .hero-link:hover,
 .hero-link:focus-visible {
   color: var(--ivory);
-  border-bottom-color: var(--copper);
 }
 
 .sep {
@@ -346,220 +300,295 @@ body.nav-open::after {
   padding-bottom: var(--section);
 }
 
-.section-inner.narrow {
-  max-width: var(--measure);
-}
-
-.section-index {
-  margin: 0 0 1.1rem;
-  font-family: var(--font-figure);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  color: var(--copper);
-}
-
-.section-header {
-  margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
-}
-
-.section-header.compact {
-  margin-bottom: 2.25rem;
-}
-
 .section h2 {
   margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(3.1rem, 9vw, 7.25rem);
-  font-weight: 500;
-  line-height: 0.9;
-  letter-spacing: -0.03em;
+  font-size: clamp(3.6rem, 11vw, 8.5rem);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.045em;
   color: var(--ivory);
 }
 
-.section-intro,
-.prose {
+.lede,
+.manifesto {
+  margin: clamp(1.75rem, 4vw, 3rem) 0 0;
+  max-width: 38rem;
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: var(--ivory);
+}
+
+.prose,
+.section-intro {
   margin: 1.15rem 0 0;
   max-width: var(--measure);
-  font-size: 1.08rem;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 .prose p {
   margin: 0;
 }
 
+.section-header {
+  margin-bottom: clamp(3rem, 8vw, 6rem);
+}
+
+.section-header.compact {
+  margin-bottom: 2.5rem;
+}
+
+.section-header.compact h2 {
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+}
+
+.works-grid,
 .step-list,
 .parcours-list,
-.contact-list {
+.contact-list,
+.contact-orbs {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
+.works-grid {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: clamp(3rem, 8vw, 5.5rem);
+}
+
+.work-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 16.5rem;
+  padding: 1.35rem 1.4rem;
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(ellipse at 80% 0%, rgb(201 160 106 / 0.08), transparent 46%),
+    #070707;
+}
+
+.work-label {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--ivory-dim);
+}
+
+.work-line {
+  margin: 0.35rem 0 0;
+  font-size: clamp(1.55rem, 3vw, 2.1rem);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--ivory);
+}
+
+.works-note {
+  margin: 1.25rem 0 0;
+  font-size: 0.82rem;
+  color: var(--ivory-dim);
+}
+
 .step {
+  padding: clamp(3.5rem, 9vw, 7rem) 0 0;
+}
+
+.step-top {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: start;
-  gap: 1.25rem;
-  padding: clamp(2.75rem, 7vw, 4.75rem) 0;
-  border-top: 1px solid var(--line);
+  gap: 1.5rem;
 }
 
-.step-kicker {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.7rem 1rem;
-  margin: 0 0 0.85rem;
-  font-size: 0.74rem;
-  font-weight: 400;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--copper);
+.step-copy {
+  max-width: var(--measure);
 }
 
 .step h3 {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 4.6vw, 3.35rem);
-  font-weight: 500;
-  line-height: 1.05;
+  margin: 0 0 0.9rem;
+  font-size: clamp(1.55rem, 2.6vw, 2.05rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
   color: var(--ivory);
 }
 
 .step-body {
-  margin: 1rem 0 0;
-  max-width: 32rem;
-}
-
-.step-aside {
-  margin: 1.15rem 0 0;
-  font-family: var(--font-display);
-  font-size: 1.2rem;
-  font-style: italic;
-  font-weight: 400;
-  color: var(--ivory-dim);
+  margin: 0;
+  line-height: 1.6;
 }
 
 .step-badge {
   display: grid;
   place-items: center;
-  width: 4.75rem;
-  height: 4.75rem;
-  margin: 0;
-  border: 1px solid rgb(244 239 228 / 0.28);
+  width: 4.4rem;
+  height: 4.4rem;
+  margin: 0.15rem 0 0;
+  border: 1px solid rgb(244 241 234 / 0.55);
   border-radius: 50%;
-  font-family: var(--font-figure);
-  font-size: 1.05rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-size: 1.15rem;
   color: var(--ivory);
 }
 
-.works-note {
-  margin: 0;
-  padding: 1.5rem 0 0;
-  border-top: 1px solid var(--line);
-  font-size: 0.86rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ivory-dim);
+.step-visual {
+  position: relative;
+  display: grid;
+  align-items: end;
+  min-height: clamp(14rem, 38vh, 26rem);
+  margin-top: clamp(2.25rem, 6vw, 4.25rem);
+  padding: 1.5rem 0.2rem;
+  overflow: hidden;
+  background: #070707;
 }
 
-.parcours {
-  padding-top: clamp(4.5rem, 10vw, 7rem);
+.step-visual::before {
+  content: "";
+  position: absolute;
+  inset: 18% 8%;
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+.step-visual[data-motif="studio"]::before {
+  border: 1px solid rgb(244 241 234 / 0.22);
+  border-radius: 50%;
+  inset: 12% 28%;
+}
+
+.step-visual[data-motif="music"]::before {
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 18px,
+    rgb(244 241 234 / 0.16) 18px,
+    rgb(244 241 234 / 0.16) 19px
+  );
+}
+
+.step-visual[data-motif="media"]::before {
+  inset: 22% 18%;
+  box-shadow:
+    0 0 0 1px rgb(244 241 234 / 0.18),
+    1.5rem 1.5rem 0 -1px var(--bg),
+    1.5rem 1.5rem 0 0 rgb(244 241 234 / 0.16);
+}
+
+.step-aside {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  max-width: 18ch;
+  font-size: clamp(1.8rem, 6vw, 4.4rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  color: var(--ivory);
 }
 
 .parcours-list {
   display: grid;
-  gap: 2.25rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--line);
+  gap: 2rem;
 }
 
 .parcours-number {
-  margin: 0 0 0.7rem;
-  font-family: var(--font-figure);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
+  margin: 0 0 0.65rem;
+  font-size: 0.8rem;
   color: var(--copper);
 }
 
 .parcours-list h3 {
-  margin: 0 0 0.45rem;
-  font-family: var(--font-display);
-  font-size: clamp(1.7rem, 3vw, 2.15rem);
-  font-weight: 500;
+  margin: 0 0 0.4rem;
+  font-size: 1.45rem;
+  font-weight: 400;
+  letter-spacing: -0.03em;
   color: var(--ivory);
 }
 
 .parcours-list p {
   margin: 0;
-  max-width: 22rem;
-}
-
-.dondolie {
-  padding-top: clamp(4.5rem, 10vw, 7rem);
+  max-width: 20rem;
 }
 
 .dondolie-kicker {
-  margin: 0 0 0.7rem;
-  font-size: 0.72rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--copper);
-}
-
-.contact {
-  padding: clamp(4.5rem, 12vw, 8rem) 0;
-  border-top: 1px solid var(--line);
-  background: linear-gradient(180deg, rgb(208 154 88 / 0.05), transparent 42%);
-}
-
-.contact h2 {
-  font-size: clamp(3.4rem, 11vw, 8rem);
-}
-
-.contact-fallback {
-  font-size: 1.12rem;
-}
-
-.contact-list {
-  display: grid;
-  gap: 1.1rem;
-  margin-top: 1.75rem;
-}
-
-.contact-list a {
-  color: var(--ivory);
-  font-size: 1.2rem;
-  text-decoration: none;
-  border-bottom: 1px solid rgb(208 154 88 / 0.45);
-}
-
-.contact-list a:hover,
-.contact-list a:focus-visible {
-  color: var(--copper);
-}
-
-.contact-label {
-  display: block;
-  margin-bottom: 0.2rem;
-  font-size: 0.72rem;
+  margin: 0 0 0.65rem;
+  font-size: 0.78rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--copper);
 }
 
+.dondolie h2 {
+  font-size: clamp(3rem, 8vw, 6.5rem);
+}
+
+.contact {
+  padding-top: clamp(6rem, 14vw, 10rem);
+}
+
+.contact h2 {
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+  letter-spacing: -0.03em;
+}
+
+.contact-inner {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.contact-fallback,
+.contact-list {
+  margin-top: 1.1rem;
+  max-width: var(--measure);
+}
+
+.contact-list {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.contact-list a {
+  color: var(--ivory);
+  text-decoration: none;
+}
+
+.contact-list a:hover {
+  color: var(--copper);
+}
+
+.contact-orbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.contact-orbs a {
+  display: grid;
+  place-items: center;
+  width: 6.5rem;
+  height: 6.5rem;
+  border: 1px solid rgb(244 241 234 / 0.45);
+  border-radius: 50%;
+  color: var(--ivory);
+  text-decoration: none;
+  font-size: 0.82rem;
+}
+
+.contact-orbs a:hover,
+.contact-orbs a:focus-visible {
+  border-color: var(--copper);
+  color: var(--copper);
+}
+
 .site-footer {
-  padding: 0 var(--space) 2.75rem;
+  padding: 0 var(--space) 2.5rem;
 }
 
 .footer-inner {
   display: grid;
-  gap: 0.35rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--line);
+  gap: 0.3rem;
+  padding-top: 1.4rem;
   font-size: 0.8rem;
   color: var(--ivory-dim);
 }
@@ -570,8 +599,8 @@ body.nav-open::after {
 
 .js [data-reveal] {
   opacity: 0;
-  transform: translateY(1.1rem);
-  transition: opacity 0.85s ease, transform 0.85s ease;
+  transform: translateY(0.9rem);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .js [data-reveal].is-visible {
@@ -589,33 +618,54 @@ body.nav-open::after {
     visibility: visible;
     opacity: 1;
     background: transparent;
-    border: 0;
+    padding: 0;
   }
 
   .site-nav ul {
     flex-direction: row;
-    gap: 1.85rem;
+    gap: 1.75rem;
     padding: 0;
   }
 
   .site-nav a {
-    padding: 0.3rem 0;
+    padding: 0.25rem 0;
+    font-size: 0.95rem;
   }
 
-  .step {
-    gap: 4rem;
+  .works-grid {
+    grid-template-columns: 1.15fr 0.9fr 1fr;
+    align-items: stretch;
+  }
+
+  .work-card {
+    min-height: min(48vh, 26rem);
+  }
+
+  .work-card:nth-child(2) {
+    margin-top: 3.25rem;
+    min-height: min(40vh, 22rem);
+  }
+
+  .step-top {
+    grid-template-columns: minmax(0, 26rem) 1fr auto;
   }
 
   .step-badge {
-    width: 7.25rem;
-    height: 7.25rem;
+    width: 5.5rem;
+    height: 5.5rem;
     font-size: 1.3rem;
-    margin-top: 0.15rem;
+    margin-top: 0.2rem;
   }
 
   .parcours-list {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 3.5rem;
+    gap: 3rem;
+  }
+
+  .contact-inner {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: 4rem;
   }
 
   .footer-inner {
@@ -625,12 +675,11 @@ body.nav-open::after {
 }
 
 @media (min-width: 1100px) {
-  .maison .prose,
-  .section-intro {
-    font-size: 1.18rem;
+  .hero h1 {
+    font-size: 2.25rem;
   }
 
-  .step-body {
-    font-size: 1.08rem;
+  .step-aside {
+    max-width: 22ch;
   }
 }

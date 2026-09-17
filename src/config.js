@@ -18,18 +18,22 @@ export const copy = {
   documentTitle: "Maison K3CH Production — Alger",
   documentDescription:
     "Maison de création à Alger. Studio, Music, Media — de l’intention à la réalisation.",
-  heroTitle: "Une maison de création.",
+  heroTitle: "Une maison de création à Alger.",
+  heroLine: "Studio, musique, médias — des récits qui restent.",
+  heroCta: "Entrer",
   maisonTitle: "Maison",
+  maisonLede: "Un même regard, de l’intention à la réalisation.",
   maisonBody: [
-    "K3CH réunit le studio, la musique et les médias à Alger. Une même exigence : image nette, son juste, récit qui reste.",
+    "K3CH réunit le studio, la musique et les médias à Alger. Image nette, son juste, récit qui reste.",
   ],
-  atelierTitle: "Atelier",
-  atelierIntro: "Trois matières. Un même geste.",
   worksNote: "Réalisations — à venir.",
+  atelierTitle: "Atelier",
+  atelierIntro:
+    "Le plateau, la salle, l’écran. Votre regard prime, de l’intention à la diffusion.",
   pillars: [
     {
       id: "studio",
-      number: "01",
+      number: "1",
       title: "Studio",
       headline: "L’image, nette.",
       text: "Captation, plateau, lumière. On cadre ce qui doit rester.",
@@ -37,7 +41,7 @@ export const copy = {
     },
     {
       id: "music",
-      number: "02",
+      number: "2",
       title: "Music",
       headline: "Le son, juste.",
       text: "Direction, enregistrement, mix. La musique porte le récit — elle n’est pas un décor.",
@@ -45,7 +49,7 @@ export const copy = {
     },
     {
       id: "media",
-      number: "03",
+      number: "3",
       title: "Media",
       headline: "Le récit, clair.",
       text: "Formats, plateformes, contenus. Être vu, pas seulement publié.",
@@ -57,19 +61,19 @@ export const copy = {
   parcours: [
     {
       id: "intention",
-      number: "01",
+      number: "1",
       title: "Intention",
       text: "On écoute. On clarifie le geste.",
     },
     {
       id: "creation",
-      number: "02",
+      number: "2",
       title: "Création",
       text: "L’idée prend forme — cadre, rythme, matière.",
     },
     {
       id: "realisation",
-      number: "03",
+      number: "3",
       title: "Réalisation",
       text: "On tourne, on assemble, on livre.",
     },
@@ -77,7 +81,7 @@ export const copy = {
   dondolieKicker: "Merch",
   dondolieTitle: "Dondolie",
   dondolieText: "Une ligne à venir.",
-  contactTitle: "Parlons-en",
+  contactTitle: "Contactez-nous",
   contactFallback: "Les coordonnées seront publiées ici.",
   footerRights: "Tous droits réservés.",
 };
