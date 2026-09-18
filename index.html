@@ -49,6 +49,8 @@
           <ul>
             <li><a href="#accueil">Accueil</a></li>
             <li><a href="#maison">Maison</a></li>
+            <li><a href="#realisations">Réalisations</a></li>
+            <li><a href="#equipe">Équipe</a></li>
             <li><a href="#atelier">Atelier</a></li>
             <li data-nav="dondolie"><a href="#dondolie">Dondolie</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -96,7 +98,76 @@
               <p class="work-line" data-bind="pillar-headline">Le récit, clair.</p>
             </li>
           </ul>
-          <p class="works-note" data-bind="works-note">Réalisations — à venir.</p>
+        </div>
+      </section>
+
+      <section id="realisations" class="section realisations" aria-labelledby="realisations-title" tabindex="-1">
+        <div class="section-inner">
+          <header class="section-header compact">
+            <h2 id="realisations-title" data-bind="works-title">Réalisations</h2>
+            <p class="section-intro" data-bind="works-intro">Media — image, récit, présence.</p>
+          </header>
+
+          <ul class="pieces-grid">
+            <li class="piece piece-featured" data-work-piece="lost-era" data-accent="media" data-reveal>
+              <figure>
+                <div class="piece-frame">
+                  <img
+                    data-work-image
+                    src="./works/lost-era-duo.jpg"
+                    width="2048"
+                    height="1152"
+                    alt="LOST ERA — deux silhouettes dos à dos, les yeux bandés, titre bleu électrique."
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>
+                  <p class="piece-kicker" data-bind="work-kicker">Media</p>
+                  <h3 data-bind="work-title">LOST ERA</h3>
+                  <p class="piece-caption" data-bind="work-caption">Visuel.</p>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="piece piece-portrait" data-work-piece="lost-era-psyconce" data-accent="media" data-reveal>
+              <figure>
+                <div class="piece-frame">
+                  <img
+                    data-work-image
+                    src="./works/lost-era-psyconce.jpg"
+                    width="1006"
+                    height="1440"
+                    alt="Affiche LOST ERA, PSYCONCE — un visage levé vers le noir."
+                    decoding="async"
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption>
+                  <p class="piece-kicker" data-bind="work-kicker">PSYCONCE</p>
+                  <h3 data-bind="work-title">LOST ERA</h3>
+                  <p class="piece-caption" data-bind="work-caption">Affiche.</p>
+                </figcaption>
+              </figure>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="equipe" class="section equipe" aria-labelledby="equipe-title" tabindex="-1">
+        <div class="section-inner">
+          <h2 id="equipe-title" data-bind="equipe-title">Équipe</h2>
+          <p class="lede" data-bind="equipe-lede">La maison, réunie.</p>
+          <figure class="equipe-frame" data-reveal>
+            <img
+              data-equipe-image
+              src="./equipe-k3ch.jpg"
+              width="1800"
+              height="1350"
+              alt="L’équipe Maison K3CH Production, réunie, vue en plongée."
+              decoding="async"
+              loading="lazy"
+            />
+            <figcaption data-bind="equipe-caption">Maison K3CH Production — Alger.</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -108,6 +179,22 @@
               Le plateau, la salle, l’écran. Votre regard prime, de l’intention à la diffusion.
             </p>
           </header>
+
+          <figure class="atelier-atmosphere" data-atelier-atmosphere data-reveal>
+            <img
+              data-atmosphere-image
+              src="./works/spotlight-papers.jpg"
+              width="2048"
+              height="1407"
+              alt="Figure seule sous un projecteur, feuilles blanches au sol."
+              decoding="async"
+              loading="lazy"
+            />
+            <figcaption>
+              <p class="piece-kicker" data-bind="atmosphere-kicker">Création</p>
+              <p class="atmosphere-caption" data-bind="atmosphere-caption">Lumière, plateau, matière.</p>
+            </figcaption>
+          </figure>
 
           <ol class="step-list">
             <li class="step" data-pillar="studio" data-reveal>
@@ -148,7 +235,17 @@
                 </div>
                 <p class="step-badge" aria-hidden="true" data-bind="pillar-number">3</p>
               </div>
-              <div class="step-visual" data-motif="media">
+              <div class="step-visual has-lockup" data-motif="media">
+                <img
+                  class="step-lockup"
+                  data-media-lockup
+                  src="./k3ch-media-lockup.jpg"
+                  width="1792"
+                  height="1008"
+                  alt="K3CH Media — Maison K3CH Production, Alger."
+                  decoding="async"
+                  loading="lazy"
+                />
                 <p class="step-aside" data-bind="pillar-aside">Moins de bruit. Plus de présence.</p>
               </div>
             </li>
