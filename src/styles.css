@@ -675,16 +675,49 @@ body.nav-open::after {
   max-width: 20rem;
 }
 
+.dondolie {
+  --dondolie-gold: #d4af4a;
+}
+
+.dondolie-stage {
+  display: grid;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: center;
+}
+
+.dondolie-emblem {
+  margin: 0;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(ellipse at 50% 46%, rgb(212 175 74 / 0.12), transparent 58%),
+    #000;
+}
+
+.dondolie-emblem img {
+  display: block;
+  width: min(34rem, 100%);
+  height: auto;
+}
+
+.dondolie-copy {
+  max-width: 28rem;
+}
+
 .dondolie-kicker {
   margin: 0 0 0.65rem;
   font-size: 0.78rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--copper);
+  color: var(--dondolie-gold);
 }
 
 .dondolie h2 {
-  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-size: clamp(2.8rem, 8vw, 5.75rem);
+}
+
+.dondolie .prose {
+  color: var(--ivory-mute);
 }
 
 .contact {
@@ -841,6 +874,15 @@ body.nav-open::after {
   .parcours-list {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 3rem;
+  }
+
+  .dondolie-stage {
+    grid-template-columns: minmax(0, 1.2fr) minmax(16rem, 0.8fr);
+    gap: clamp(2.5rem, 6vw, 5.5rem);
+  }
+
+  .dondolie-emblem img {
+    width: min(40rem, 100%);
   }
 
   .contact-inner {
