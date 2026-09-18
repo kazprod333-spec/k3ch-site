@@ -49,7 +49,7 @@ Le lockup **K3CH Media** (`public/k3ch-media-lockup.jpg`) n’est pas le marqueu
 
 ## Photos
 
-Les visuels publics sont dans `public/` (et `public/works/`). Chemins et légendes sont centralisés dans `src/config.js` (`copy.works`, `copy.equipeImage`, `copy.atelierAtmosphere`, `copy.mediaLockup`).
+Les visuels publics sont dans `public/` (et `public/works/`). Chemins et légendes sont centralisés dans `src/config.js` (`copy.works`, `copy.equipeImage`, `copy.atelierAtmosphere`, `copy.mediaLockup`, `copy.dondolieEmblem`).
 
 | Fichier | Usage |
 | --- | --- |
@@ -59,6 +59,7 @@ Les visuels publics sont dans `public/` (et `public/works/`). Chemins et légend
 | `public/works/spotlight-papers.jpg` | Atmosphère Atelier / Création |
 | `public/equipe-k3ch.jpg` | Section Équipe |
 | `public/k3ch-media-lockup.jpg` | Bloc Media (atelier) |
+| `public/dondolie-emblem.jpg` | Emblème Dondolie (teaser merch) |
 
 Ne pas inventer de noms de clients au-delà de ce qui figure sur les visuels (LOST ERA, PSYCONCE).
 
@@ -74,7 +75,7 @@ export const features = {
 
 Passer `dondolieTeaser` à `false` pour retirer la section et le lien de navigation.
 
-Les textes du teaser se trouvent dans `copy.dondolieTitle` et `copy.dondolieText`.
+Les textes du teaser se trouvent dans `copy.dondolieTitle` et `copy.dondolieText`. L’emblème (`public/dondolie-emblem.jpg`) est branché via `copy.dondolieEmblem` et s’affiche en visuel principal de la section.
 
 ## Publication (GitHub Pages)
 
@@ -115,7 +116,7 @@ One-page, ancres internes :
 4. **Équipe** — photo de la maison
 5. **Atelier** — atmosphère Création, puis étapes numérotées (Media avec lockup K3CH Media)
 6. **Parcours** — Intention → Création → Réalisation
-7. **Dondolie** — teaser merch optionnel (`features.dondolieTeaser`)
+7. **Dondolie** — teaser merch optionnel (`features.dondolieTeaser`), emblème en visuel principal
 8. **Contact** — titre sobre + message d’attente tant que `contact` est vide (pastilles sociales seulement si renseignées)
 
 ```
@@ -127,6 +128,7 @@ public/favicon.svg
 public/logo.png
 public/equipe-k3ch.jpg
 public/k3ch-media-lockup.jpg
+public/dondolie-emblem.jpg
 public/works/lost-era-duo.jpg
 public/works/lost-era-psyconce.jpg
 public/works/spotlight-papers.jpg

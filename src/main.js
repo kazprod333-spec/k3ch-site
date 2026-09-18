@@ -173,6 +173,17 @@ function applyVisuals() {
       lockup.height,
     );
   }
+
+  const emblem = copy.dondolieEmblem;
+  if (emblem) {
+    applyImage(
+      document.querySelector("[data-dondolie-emblem]"),
+      emblem.src,
+      emblem.alt,
+      emblem.width,
+      emblem.height,
+    );
+  }
 }
 
 function applyDondolie() {
