@@ -194,6 +194,24 @@ function applyDondolie() {
   if (navItem) navItem.hidden = !visible;
 }
 
+function toWhatsAppUrl(value) {
+  const trimmed = String(value).trim();
+  if (!trimmed) return "";
+  if (/^https?:\/\//i.test(trimmed)) return trimmed;
+
+  const digits = trimmed.replace(/\D/g, "");
+  if (!digits) return "";
+
+  let intl = digits;
+  if (digits.startsWith("00")) {
+    intl = digits.slice(2);
+  } else if (digits.startsWith("0")) {
+    intl = `213${digits.slice(1)}`;
+  }
+
+  return `https://wa.me/${intl}`;
+}
+
 function publicContacts() {
   const items = [];
   if (contact.email) {
@@ -210,6 +228,15 @@ function publicContacts() {
       label: "Téléphone",
       href: `tel:${contact.phone.replace(/\s+/g, "")}`,
       value: contact.phone,
+    });
+  }
+  if (contact.whatsapp) {
+    items.push({
+      kind: "text",
+      label: "Téléphone / WhatsApp",
+      href: toWhatsAppUrl(contact.whatsapp),
+      value: contact.whatsapp,
+      external: true,
     });
   }
   if (contact.instagram) {
@@ -266,8 +293,23 @@ function applyContact() {
     textItems.forEach((item) => {
       const li = document.createElement("li");
       const a = document.createElement("a");
+      a.className = "contact-link";
       a.href = item.href;
-      a.textContent = item.value;
+      a.setAttribute("aria-label", `${item.label} : ${item.value}`);
+      if (item.external) {
+        a.rel = "noopener noreferrer";
+        a.target = "_blank";
+      }
+
+      const label = document.createElement("span");
+      label.className = "contact-label";
+      label.textContent = item.label;
+
+      const value = document.createElement("span");
+      value.className = "contact-value";
+      value.textContent = item.value;
+
+      a.append(label, value);
       li.append(a);
       list.append(li);
     });

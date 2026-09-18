@@ -29,13 +29,14 @@ Ouvrir `src/config.js` et renseigner **uniquement** les informations destinées 
 
 - `email`
 - `phone`
+- `whatsapp` — numéro affiché tel quel ; le lien `wa.me` est dérivé (numéros algériens `0…` → `213…`)
 - `instagram`
 - `youtube`
 - `site`
 
 Laisser une chaîne vide (`""`) pour ne rien afficher. Le site n’invente aucun contact : s’il n’y a rien de renseigné, un message d’attente s’affiche.
 
-Ne jamais y placer de finances internes, de WhatsApp, d’accès opérationnels ou d’informations non publiques.
+Ne jamais y placer de finances internes, d’accès opérationnels ou d’informations non publiques.
 
 ## Logo officiel
 
@@ -117,7 +118,7 @@ One-page, ancres internes :
 5. **Atelier** — atmosphère Création, puis étapes numérotées (Media avec lockup K3CH Media)
 6. **Parcours** — Intention → Création → Réalisation
 7. **Dondolie** — teaser merch optionnel (`features.dondolieTeaser`), emblème en visuel principal
-8. **Contact** — titre sobre + message d’attente tant que `contact` est vide (pastilles sociales seulement si renseignées)
+8. **Contact** — titre sobre + coordonnées publiques si renseignées, sinon message d’attente (pastilles sociales seulement si renseignées)
 
 ```
 index.html

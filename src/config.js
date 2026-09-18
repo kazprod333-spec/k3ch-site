@@ -1,7 +1,7 @@
 /**
  * Source unique de la marque et des contacts publics.
  * Remplir uniquement des informations destinées à être publiées.
- * Ne jamais y placer de finances, WhatsApp, accès internes ou détails opérationnels.
+ * Ne jamais y placer de finances, d’accès internes ou de détails opérationnels.
  */
 
 export const brand = {
@@ -142,11 +142,16 @@ export const copy = {
  * Contacts publics uniquement. Chaînes vides = non affichées.
  * Exemples :
  *   email: "contact@exemple.com"
+ *   whatsapp: "05 59 77 10 74"
  *   instagram: "https://instagram.com/exemple"
+ *
+ * WhatsApp : afficher le numéro national tel que fourni.
+ * Le lien wa.me utilise la forme internationale (DZ : 05… → 213…).
  */
 export const contact = {
   email: "",
   phone: "",
+  whatsapp: "05 59 77 10 74",
   instagram: "",
   youtube: "",
   site: "",

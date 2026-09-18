@@ -745,12 +745,32 @@ body.nav-open::after {
   gap: 0.45rem;
 }
 
-.contact-list a {
+.contact-link {
+  display: grid;
+  gap: 0.22rem;
+  width: fit-content;
   color: var(--ivory);
   text-decoration: none;
 }
 
-.contact-list a:hover {
+.contact-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ivory-dim);
+}
+
+.contact-value {
+  color: inherit;
+}
+
+.contact-list a:hover,
+.contact-list a:focus-visible {
+  color: var(--copper);
+}
+
+.contact-list a:hover .contact-label,
+.contact-list a:focus-visible .contact-label {
   color: var(--copper);
 }
 
