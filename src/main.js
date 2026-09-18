@@ -36,8 +36,22 @@ function applyBrand() {
   text("[data-bind='maison-lede']", copy.maisonLede);
   text("[data-bind='atelier-title']", copy.atelierTitle);
   text("[data-bind='atelier-intro']", copy.atelierIntro);
-  text("[data-bind='works-note']", copy.worksNote);
+  text("[data-bind='works-title']", copy.worksTitle);
+  text("[data-bind='works-intro']", copy.worksIntro);
+  text("[data-bind='equipe-title']", copy.equipeTitle);
+  text("[data-bind='equipe-lede']", copy.equipeLede);
+  text("[data-bind='equipe-caption']", copy.equipeCaption);
   text("[data-bind='parcours-title']", copy.parcoursTitle);
+
+  const worksNote = document.querySelector("[data-bind='works-note']");
+  if (worksNote) {
+    if (copy.worksNote) {
+      worksNote.hidden = false;
+      worksNote.textContent = copy.worksNote;
+    } else {
+      worksNote.hidden = true;
+    }
+  }
   text("[data-bind='parcours-intro']", copy.parcoursIntro);
   text("[data-bind='dondolie-kicker']", copy.dondolieKicker);
   text("[data-bind='dondolie-title']", copy.dondolieTitle);
@@ -77,6 +91,8 @@ function applyBrand() {
     bindWithin(root, "step-text", step.text);
   });
 
+  applyVisuals();
+
   const lockups = document.querySelectorAll("[data-lockup]");
   const logos = document.querySelectorAll("[data-bind='logo']");
   if (brand.logoSrc) {
@@ -98,6 +114,64 @@ function applyBrand() {
     lockups.forEach((wrap) => {
       wrap.hidden = false;
     });
+  }
+}
+
+function applyImage(el, src, alt, width, height) {
+  if (!el || !src) return;
+  el.src = src;
+  if (alt) el.alt = alt;
+  if (width) el.setAttribute("width", String(width));
+  if (height) el.setAttribute("height", String(height));
+}
+
+function applyVisuals() {
+  (copy.works || []).forEach((work) => {
+    const root = document.querySelector(`[data-work-piece='${work.id}']`);
+    if (!root) return;
+    bindWithin(root, "work-kicker", work.kicker);
+    bindWithin(root, "work-title", work.title);
+    bindWithin(root, "work-caption", work.caption);
+    applyImage(
+      root.querySelector("[data-work-image]"),
+      work.image,
+      work.imageAlt,
+      work.width,
+      work.height,
+    );
+  });
+
+  const atmosphere = copy.atelierAtmosphere;
+  const atmosphereRoot = document.querySelector("[data-atelier-atmosphere]");
+  if (atmosphere && atmosphereRoot) {
+    bindWithin(atmosphereRoot, "atmosphere-kicker", atmosphere.kicker);
+    bindWithin(atmosphereRoot, "atmosphere-caption", atmosphere.caption);
+    applyImage(
+      atmosphereRoot.querySelector("[data-atmosphere-image]"),
+      atmosphere.image,
+      atmosphere.imageAlt,
+      atmosphere.width,
+      atmosphere.height,
+    );
+  }
+
+  applyImage(
+    document.querySelector("[data-equipe-image]"),
+    copy.equipeImage,
+    copy.equipeImageAlt,
+    copy.equipeWidth,
+    copy.equipeHeight,
+  );
+
+  const lockup = copy.mediaLockup;
+  if (lockup) {
+    applyImage(
+      document.querySelector("[data-media-lockup]"),
+      lockup.src,
+      lockup.alt,
+      lockup.width,
+      lockup.height,
+    );
   }
 }
 
